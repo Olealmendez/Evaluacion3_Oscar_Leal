@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2 - Nombres</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Formulario de Nombres</h2>
+
+        <form method="POST" action="{{ url_for('ejercicio2') }}">
+            <label for="nombre1">Nombre 1:</label>
+            <input type="text" id="nombre1" name="nombre1" required>
+
+            <label for="nombre2">Nombre 2:</label>
+            <input type="text" id="nombre2" name="nombre2" required>
+
+            <label for="nombre3">Nombre 3:</label>
+            <input type="text" id="nombre3" name="nombre3" required>
+
+            <button type="submit" class="btn">Enviar</button>
+        </form>
+
+        {% if nombre_mayor and longitud_mayor and longitud_mayor != '-1' %}
+            <div class="resultado">
+                <p>El nombre con mayor cantidad de caracteres es: **{{ nombre_mayor }}**</p>
+                <p>El nombre tiene: **{{ longitud_mayor }}** caracteres</p>
+            </div>
+        {% endif %}
+
+        <p><a href="{{ url_for('index') }}">Volver al Menú Principal</a></p>
+    </div>
+</body>
+</html>
